@@ -32,13 +32,16 @@ from gyp.common import GetFlavor
 
 # imports in tools/configure.d
 sys.path.insert(0, os.path.join('tools', 'configure.d'))
+# 下载模块
 import nodedownload
 
 # imports in tools/
 sys.path.insert(0, 'tools')
+# 获取版本
 import getmoduleversion
 import getnapibuildversion
 import getsharedopensslhasquic
+# 引入gyp来编译 ./tools/gyp_node.py，主要看下run_gyp
 from gyp_node import run_gyp
 
 # parse our options

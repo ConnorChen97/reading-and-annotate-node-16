@@ -13,11 +13,15 @@ import gyp
 # to be written.
 output_dir = os.path.join(os.path.abspath(node_root), 'out')
 
+# configure引入run_gyp函数
 def run_gyp(args):
   # GYP bug.
   # On msvs it will crash if it gets an absolute path.
   # On Mac/make it will crash if it doesn't get an absolute path.
   a_path = node_root if sys.platform == 'win32' else os.path.abspath(node_root)
+  # 运行node.gyp，node.gyp是一个类似json的结构，查看target_name
+  # gyp用法看node-gyp，源码在./gyp
+  # https://github.com/nodejs/node-gyp
   args.append(os.path.join(a_path, 'node.gyp'))
   common_fn = os.path.join(a_path, 'common.gypi')
   options_fn = os.path.join(a_path, 'config.gypi')
