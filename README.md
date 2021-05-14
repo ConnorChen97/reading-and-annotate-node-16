@@ -8,4 +8,8 @@ Node.js-16的中文注释分析
 ### node编译过程
 ```
 ./configure
+
+make
+
+make install // 只本地调试不需要这步
 ```
